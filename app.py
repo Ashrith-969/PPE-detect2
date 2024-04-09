@@ -7,7 +7,7 @@ import logging
 import queue
 from pathlib import Path
 from typing import List, NamedTuple
-
+import os
 import av
 import cv2
 import numpy as np
@@ -23,34 +23,14 @@ ROOT = HERE
 logger = logging.getLogger(__name__)
 
 
+
+
 MODEL_URL = "https://github.com/robmarkcole/object-detection-app/raw/master/model/MobileNetSSD_deploy.caffemodel"  # noqa: E501
 MODEL_LOCAL_PATH = ROOT / "./models/MobileNetSSD_deploy.caffemodel"
 PROTOTXT_URL = "https://github.com/robmarkcole/object-detection-app/raw/master/model/MobileNetSSD_deploy.prototxt.txt"  # noqa: E501
 PROTOTXT_LOCAL_PATH = ROOT / "./models/MobileNetSSD_deploy.prototxt.txt"
 
-CLASSES = [
-    "background",
-    "aeroplane",
-    "bicycle",
-    "bird",
-    "boat",
-    "bottle",
-    "bus",
-    "car",
-    "cat",
-    "chair",
-    "cow",
-    "diningtable",
-    "dog",
-    "horse",
-    "motorbike",
-    "person",
-    "pottedplant",
-    "sheep",
-    "sofa",
-    "train",
-    "tvmonitor",
-]
+CLASSES = ['boots', 'gloves', 'helmet', 'human', 'vest']
 
 
 class Detection(NamedTuple):
